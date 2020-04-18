@@ -151,7 +151,6 @@
                     this.selectedCountry.push(countryName);
                     $(".selectedCountryList").append("<span onclick='handleBadgeClick(this)' class=\"countryBadge pointer badge badge-info p-2 mr-1\">#" + countryName + "</span>");
                 }
-                this.focusSearchInput();
             },
             topFunction: function () {
                 $("html, body").animate({
