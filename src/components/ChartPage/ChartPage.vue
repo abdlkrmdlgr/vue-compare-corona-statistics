@@ -7,7 +7,7 @@
                 <router-link to="/">
                 <span class="btn btn-warning">
                     <font-awesome-icon icon="share" rotation="180" flip="horizontal"/>
-                    Back to Country List
+                    <span class="d-lg-block d-md-block d-sm-none d-none">Back to Country List</span>
                 </span>
                 </router-link>
             </p>

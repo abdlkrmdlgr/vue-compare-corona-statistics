@@ -8,7 +8,7 @@
                 <h3 class="text-danger bv-d-sm-down-none">
                     Heyyy! Compare Corona Stats by Country of Your Choice
                 </h3>
-                <h6 class="text-danger d-md-none d-sm-none d-lg-none">
+                <h6 class="text-danger d-md-none d-lg-none">
                     Heyyy! Compare Corona Stats by Country of Your Choice
                 </h6>
                 <p class="text-right small">
@@ -36,13 +36,13 @@
                        @keydown.enter="searchEnterKey"
                        @keyup="handleCountrySearch">
             </div>
-            <div class="col-md-6 float-left mb-1 text-left">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 float-left mb-1 text-center">
                 <router-link :to="{ name: 'chart', params: { countryStr: this.selectedCountryStr }}"
-                             class="form-control btn btn-info col-md-3 col-9 mb-1 mr-1 ml-2">
+                             class="form-control btn btn-info col-lg-9 col-md-8 col-sm-9 col-9 mr-sm-0 mb-1 mr-sm-1 ">
                     <font-awesome-icon icon="chart-line"/>
                     Show Chart
                 </router-link>
-                <button class="form-control btn btn-warning col-md-1 col-2 mb-1" @click="clearFilterClick">
+                <button class="form-control btn btn-warning col-lg-2 col-md-2 col-sm-2 col-3 mb-1" @click="clearFilterClick">
                     <font-awesome-icon icon="brush"/>
                 </button>
             </div>
@@ -50,7 +50,7 @@
         <div class="col-md-12 selectedCountryList"></div>
         <hr/>
         <div v-for="(item,name) in countryItem" :key="name"
-             class="col-md-3 float-left mb-2 countryItem"
+             class="col-lg-3 col-md-4 col-sm-6 col-12 float-left mb-2 countryItem"
              @click="handleCountryClick($event,name)">
             <div class="countryItemInnerDiv p-2 border text-danger text-right h4 font-weight-bold text-white">
                 <Country :data="item" :countryName="name"/>
