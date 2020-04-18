@@ -16,10 +16,10 @@
                 <h5 class="d-lg-none d-md-none d-sm-block d-block">Selected Countries Comparable Line Chart</h5>
             </div>
         </div>
-        <span class="badge badge-info mr-1 p-2 d-none" v-for="country in selectedCountry"
+        <span class="badge badge-info mr-1 p-2" v-for="country in selectedCountry"
               :key="country">#{{country}}</span>
 
-        <hr/>
+        <hr class="m-2"/>
         <LineChart/>
     </div>
 </template>

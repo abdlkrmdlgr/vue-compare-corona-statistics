@@ -26,7 +26,7 @@
             <p class="small d-lg-none d-sm-none d-md-none" v-if="isLangTr">Grafiği daha iyi görebilmek için ekranı
                 döndürün.</p>
             <p class="small d-lg-none d-sm-none d-md-none" v-else>Rotate the screen to see the chart better.</p>
-            <div class="row canvasDiv p-5">
+            <div class="row canvasDiv m-2">
                 <canvas id="line-chart" width="800" height="520"/>
             </div>
         </div>
