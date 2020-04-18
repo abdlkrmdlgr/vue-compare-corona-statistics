@@ -33,6 +33,7 @@
                        type="text"
                        placeholder="Filter Country"
                        class="form-control"
+                       autocomplete="off"
                        @keydown.enter="searchEnterKey"
                        @keyup="handleCountrySearch">
             </div>
