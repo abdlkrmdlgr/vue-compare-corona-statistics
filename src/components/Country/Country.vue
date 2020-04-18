@@ -1,6 +1,6 @@
 <template>
     <div class="Country">
-        <div style="height: 100px;" class="countryItemLabel">
+        <div style="height:20px;" class="countryItemLabel">
             <div style="height: 80%">{{countryNameStr}}</div>
             <div class="text-left mb-0" style="height: 64px">
                 <img :src="flagUrl"/>

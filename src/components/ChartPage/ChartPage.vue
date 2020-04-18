@@ -12,15 +12,6 @@
                 </router-link>
             </p>
         </div>
-<!--        <div class="col-md-12 text-left mb-2">-->
-<!--            <router-link to="/">-->
-<!--                <span class="btn btn-warning">-->
-<!--&lt;!&ndash;                    <font-awesome-icon icon="share" rotation="180" flip="horizontal" spin="1" style="animation-direction: reverse;"/>&ndash;&gt;-->
-<!--                    <font-awesome-icon icon="share" rotation="180" flip="horizontal"/>-->
-<!--                    Back to Country List-->
-<!--                </span>-->
-<!--            </router-link>-->
-<!--        </div>-->
         <hr/>
         <LineChart/>
     </div>

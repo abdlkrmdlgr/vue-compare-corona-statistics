@@ -8,6 +8,8 @@ import '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import CountryList from "@/components/CountryList/CountryList";
 import VueRouter from "vue-router";
+import VueAnalytics from 'vue-analytics';
+
 import {
     faAt,
     faBrush,
@@ -36,6 +38,14 @@ const router = new VueRouter({
 });
 
 Vue.use(VueRouter);
+
+
+// Configuration VueAnalytics
+Vue.use(VueAnalytics, {
+    id: ' UA-12370199-5',
+    router
+});
+
 
 new Vue({
     render: h => h(App),

@@ -15,7 +15,8 @@
     "bootstrap-vue": "^2.11.0",
     "chart.js": "^2.9.0",
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-analytics": "^5.22.1"
   },
   "devDependencies": {
     "vue": "^2.6.11",

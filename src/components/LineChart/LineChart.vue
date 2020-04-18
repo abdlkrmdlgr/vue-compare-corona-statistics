@@ -16,7 +16,7 @@
                 Death Chart
             </button>
 
-            <div class="canvasDiv">
+            <div class="row canvasDiv">
                 <canvas id="line-chart" width="800" height="320"/>
             </div>
         </div>
