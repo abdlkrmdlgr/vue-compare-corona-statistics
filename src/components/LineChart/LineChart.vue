@@ -15,9 +15,10 @@
                 <font-awesome-icon icon="skull-crossbones"/>
                 Death Chart
             </button>
-
-            <div class="row canvasDiv">
-                <canvas id="line-chart" width="800" height="320"/>
+            <p class="small d-lg-none d-sm-none d-md-none" v-if="isLangTr">Grafiği daha iyi görebilmek için ekranı döndürün.</p>
+            <p class="small d-lg-none d-sm-none d-md-none" v-else>Rotate the screen to see the chart better.</p>
+            <div class="row canvasDiv p-5">
+                <canvas id="line-chart" width="800" height="520"/>
             </div>
         </div>
     </div>
@@ -33,7 +34,12 @@
         data:function(){
             return {
                 countryItem:[],
-                countries:[],
+                countries:[]
+            }
+        },
+        computed:{
+            isLangTr: function () {
+                return navigator.language.split("-")[0] == "tr";
             }
         },
         created() {
@@ -51,10 +57,6 @@
         },
         methods: {
             drawChart: function (type) {
-
-                console.log(this.countryItem);
-
-                console.log(type);
                 var dataObject = [];
                 var dateObject = [];
                 var detailMessage = null;
