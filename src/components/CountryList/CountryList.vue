@@ -31,21 +31,25 @@
         </div>
 
         <div class="row form-group p-3">
-                <div class="col-md-6 float-left mb-1">
-                    <input id="searchInput" type="text" placeholder="Filter Country" class="form-control"
-                           @keyup="handleCountrySearch">
-                </div>
-                <div class="col-md-6 float-left mb-1">
-                    <button class="form-control btn btn-warning col-md-5 mr-1 mb-1" @click="clearFilterClick">
-                        <font-awesome-icon icon="brush"/>
-                        Clear Filter
-                    </button>
-                    <router-link :to="{ name: 'chart', params: { countryStr: this.selectedCountryStr }}"
-                                 class="form-control btn btn-info col-md-6 mb-1">
-                        <font-awesome-icon icon="chart-line"/>
-                        Show Comparable Chart
-                    </router-link>
-                </div>
+            <div class="col-md-6 float-left mb-1">
+                <input id="searchInput"
+                       type="text"
+                       placeholder="Filter Country"
+                       class="form-control"
+                       @keydown.enter="searchEnterKey"
+                       @keyup="handleCountrySearch">
+            </div>
+            <div class="col-md-6 float-left mb-1">
+                <button class="form-control btn btn-warning col-md-5 mr-1 mb-1" @click="clearFilterClick">
+                    <font-awesome-icon icon="brush"/>
+                    Clear Filter
+                </button>
+                <router-link :to="{ name: 'chart', params: { countryStr: this.selectedCountryStr }}"
+                             class="form-control btn btn-info col-md-6 mb-1">
+                    <font-awesome-icon icon="chart-line"/>
+                    Show Comparable Chart
+                </router-link>
+            </div>
         </div>
         <div class="col-md-12 selectedCountryList"></div>
         <hr/>
@@ -100,10 +104,10 @@
 
                 });
         },
-        mounted() {
-            // $(document).on("click", ".badge", this.handleCountryClick);
-        },
         methods: {
+            searchEnterKey: function () {
+                $(".countryItem[style='display: block;']")[0].click();
+            },
             handleCountrySearch: function () {
                 $(".countryItem").css("display", "none");
                 $(".countryItemLabel").each(function () {
@@ -135,7 +139,7 @@
                     this.selectedCountry.push(countryName);
                     $(".selectedCountryList").append("<span onclick='handleBadgeClick(this)' class=\"countryBadge pointer badge badge-info p-2 mr-1\">#" + countryName + "</span>");
                 }
-            },
+            }
         }
     }
 </script>
@@ -145,13 +149,15 @@
         border-radius: 5px;
         cursor: pointer;
     }
-    .vueLogo{
+
+    .vueLogo {
         background-color: transparent;
         background-image: url("../../assets/logo.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
+
     .countryItemInnerDiv {
         height: 150px;
     }
