@@ -99,6 +99,9 @@
                     this.countryItem = json;
                 });
         },
+        mounted() {
+            $("#searchInput").focus();
+        },
         methods: {
             searchEnterKey: function () {
                 $(".countryItem[style='display: block;']")[0].click();
