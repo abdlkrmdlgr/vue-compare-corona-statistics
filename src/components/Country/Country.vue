@@ -1,8 +1,10 @@
 <template>
     <div class="Country">
-        <div style="height:20px;" class="countryItemLabel">
-            <div style="height: 80%">{{countryNameStr}}</div>
-            <div class="text-left mb-0" style="height: 64px">
+        <div class="countryItemLabel">
+            <div style="position: absolute; right: 30px; top:10px" class="h5 d-lg-block d-md-block d-sm-none d-none">{{countryNameStr}}</div>
+            <div style="position: absolute; right: 30px; top:5px"
+                 class="d-lg-none d-md-none d-sm-block d-block">{{countryNameStr}}</div>
+            <div class="text-left mt-4">
                 <img :src="flagUrl"/>
             </div>
         </div>

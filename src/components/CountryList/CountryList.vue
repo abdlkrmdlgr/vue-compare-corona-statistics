@@ -42,7 +42,8 @@
                     <font-awesome-icon icon="chart-line"/>
                     Show Chart
                 </router-link>
-                <button class="form-control btn btn-warning col-lg-2 col-md-2 col-sm-2 col-3 mb-1" @click="clearFilterClick">
+                <button class="form-control btn btn-warning col-lg-2 col-md-2 col-sm-2 col-3 mb-1"
+                        @click="clearFilterClick">
                     <font-awesome-icon icon="brush"/>
                 </button>
             </div>
@@ -50,14 +51,14 @@
         <div class="col-md-12 selectedCountryList"></div>
         <hr/>
         <div v-for="(item,name) in countryItem" :key="name"
-             class="col-lg-3 col-md-4 col-sm-6 col-12 float-left mb-2 countryItem"
+             class="col-lg-3 col-md-4 col-sm-6 col-6 float-left mb-1 countryItem"
              @click="handleCountryClick($event,name)">
-            <div class="countryItemInnerDiv p-2 border text-danger text-right h4 font-weight-bold text-white">
+            <div class="countryItemInnerDiv p-1 border text-danger text-right h6 font-weight-bold text-white">
                 <Country :data="item" :countryName="name"/>
             </div>
         </div>
         <button @click="topFunction" class="btn btn-danger scrollToTopButton">
-            <font-awesome-icon icon="arrow-circle-up" />
+            <font-awesome-icon icon="arrow-circle-up"/>
         </button>
     </div>
 </template>
@@ -96,6 +97,16 @@
                     delete json["US"];
                     delete json["MS Zaandam"];
                     delete json["Diamond Princess"];
+
+                    var sortedCountry = ["United States","Russia","Spain", "France", "Italy", "Portugal", "Germany", "Finland", "Norway", "Australia",
+                        "Greece", "Denmark", "Czechia", "China", "India",
+                        "Hungary","Kazakhstan", "Bosnia and Herzegovina", "Azerbaijan", "Turkey"];
+
+                    sortedCountry.forEach(item => {
+                        var sortedCountryData = {};
+                        sortedCountryData[item] = json[item];
+                        json = Object.assign(sortedCountryData, json);
+                    });
                     this.countryItem = json;
                 });
         },
@@ -121,7 +132,7 @@
                 $(".countryItem .countryItemInnerDiv").removeClass("text-white bg-info");
                 $(".countryItem .countryItemInnerDiv").addClass("text-danger");
 
-                this.selectedCountry=[];
+                this.selectedCountry = [];
                 this.handleCountrySearch();
             },
             handleCountryClick: function (e, countryName) {
@@ -131,7 +142,7 @@
                     item.removeClass(selectorClass);
                     item.addClass("text-danger");
                     $(".badge:contains(" + countryName + ")").remove();
-                    this.selectedCountry.splice(this.selectedCountry.indexOf(countryName),1);
+                    this.selectedCountry.splice(this.selectedCountry.indexOf(countryName), 1);
                 } else {
                     item.addClass(selectorClass);
                     item.removeClass("text-danger");
@@ -173,6 +184,7 @@
         transition: background-color 0.5s ease;
         background-color: #17a2b8 !important;
     }
+
     .scrollToTopButton {
         position: fixed;
         bottom: 20px;
