@@ -118,6 +118,7 @@
                 $(".countryItem .countryItemInnerDiv").removeClass("text-white bg-info");
                 $(".countryItem .countryItemInnerDiv").addClass("text-danger");
 
+                this.selectedCountry=[];
                 this.handleCountrySearch();
             },
             handleCountryClick: function (e, countryName) {
