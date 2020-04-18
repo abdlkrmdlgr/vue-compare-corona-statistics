@@ -56,6 +56,9 @@
                 <Country :data="item" :countryName="name"/>
             </div>
         </div>
+        <button @click="topFunction" class="btn btn-danger scrollToTopButton">
+            <font-awesome-icon icon="arrow-circle-up" />
+        </button>
     </div>
 </template>
 <script>
@@ -87,17 +90,13 @@
             fetch("https://pomber.github.io/covid19/timeseries.json")
                 .then(r => r.json())
                 .then(json => {
-
                     json["Palestine"] = json["West Bank and Gaza"];
                     json["United States"] = json["US"];
                     delete json["West Bank and Gaza"];
                     delete json["US"];
                     delete json["MS Zaandam"];
                     delete json["Diamond Princess"];
-
                     this.countryItem = json;
-
-
                 });
         },
         methods: {
@@ -135,6 +134,12 @@
                     this.selectedCountry.push(countryName);
                     $(".selectedCountryList").append("<span onclick='handleBadgeClick(this)' class=\"countryBadge pointer badge badge-info p-2 mr-1\">#" + countryName + "</span>");
                 }
+            },
+            topFunction: function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+                return false;
             }
         }
     }
@@ -163,6 +168,12 @@
         transition: background-color 0.5s ease;
         background-color: #17a2b8 !important;
     }
-    .selectedCountryList{
+    .scrollToTopButton {
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        cursor: pointer;
+
     }
 </style>

@@ -13,16 +13,24 @@ import VueAnalytics from 'vue-analytics';
 import {
     faAt,
     faBrush,
-    faChartLine, faCode, faExclamationTriangle, faLink,
+    faChartLine,
+    faCode,
+    faExclamationTriangle,
+    faLink,
     faProcedures,
     faRunning,
     faSearch,
-    faShare, faSkullCrossbones,
+    faShare,
+    faSkullCrossbones,
     faThumbtack
 } from "@fortawesome/free-solid-svg-icons";
 import ChartPage from "@/components/ChartPage/ChartPage";
+import {faArrowCircleUp} from "@fortawesome/free-solid-svg-icons/faArrowCircleUp";
 
-library.add(faChartLine, faBrush, faSearch, faThumbtack, faShare, faRunning, faProcedures, faSkullCrossbones, faLink, faAt, faCode, faExclamationTriangle);
+library.add(faChartLine, faBrush, faSearch, faThumbtack,
+    faShare, faRunning, faProcedures, faSkullCrossbones,
+    faLink, faAt, faCode, faExclamationTriangle,
+    faArrowCircleUp);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(BootstrapVue);
