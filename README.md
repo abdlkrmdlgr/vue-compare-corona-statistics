@@ -1,6 +1,6 @@
 # corona-statistic-vue
 
-#Canlı Önizleme
+# Canlı Link
 http://stats.abdulkerimdulger.com
 
 ## Project setup
