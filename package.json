@@ -13,7 +13,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.11.0",
-    "chart.js": "^2.9.0",
+    "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-analytics": "^5.22.1"

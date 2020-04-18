@@ -50,7 +50,7 @@ Vue.use(VueRouter);
 
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
-    id: ' UA-12370199-5',
+    id: 'UA-12370199-5',
     router
 });
 

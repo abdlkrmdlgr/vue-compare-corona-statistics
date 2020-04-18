@@ -130,7 +130,8 @@
                 if (item.hasClass(selectorClass)) {
                     item.removeClass(selectorClass);
                     item.addClass("text-danger");
-                    $(".badge:contains(" + countryName + ")").remove()
+                    $(".badge:contains(" + countryName + ")").remove();
+                    this.selectedCountry.splice(this.selectedCountry.indexOf(countryName),1);
                 } else {
                     item.addClass(selectorClass);
                     item.removeClass("text-danger");

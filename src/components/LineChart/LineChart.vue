@@ -18,7 +18,7 @@
             <p class="small d-lg-none d-sm-none d-md-none" v-if="isLangTr">Grafiği daha iyi görebilmek için ekranı döndürün.</p>
             <p class="small d-lg-none d-sm-none d-md-none" v-else>Rotate the screen to see the chart better.</p>
             <div class="row canvasDiv p-5">
-                <canvas id="line-chart" width="800"/>
+                <canvas id="line-chart" width="800" height="520"/>
             </div>
         </div>
     </div>
@@ -51,7 +51,6 @@
                 .then(r => r.json())
                 .then(json => {
                     this.countryItem = json;
-
                     this.drawChart('D');
                 });
         },
@@ -75,7 +74,12 @@
                     Object.keys(this.countryItem[country]).map(index => {
                         var item = this.countryItem[country][index];
 
-                        if (Date.parse(item.date) >= Date.parse("2020-3-1")) {
+                        var parsedItemDate = item.date.split("-");
+                        if (parsedItemDate[1].length==1) parsedItemDate[1]="0"+parsedItemDate[1];
+                        if (parsedItemDate[2].length==1) parsedItemDate[2]="0"+parsedItemDate[2];
+                        item.date = parsedItemDate[0]+"-"+parsedItemDate[1]+"-"+parsedItemDate[2];
+
+                        if (Date.parse(item.date) >= Date.parse("2020-03-01")) {
                             datesArr.push(item.date);
                             confirmedArr.push(item.confirmed);
                             deathsArr.push(item.deaths);
