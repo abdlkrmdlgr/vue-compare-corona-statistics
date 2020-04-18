@@ -111,7 +111,7 @@
                 });
         },
         mounted() {
-            $("#searchInput").focus();
+            this.focusSearchInput();
         },
         methods: {
             searchEnterKey: function () {
@@ -134,6 +134,7 @@
 
                 this.selectedCountry = [];
                 this.handleCountrySearch();
+                this.focusSearchInput();
             },
             handleCountryClick: function (e, countryName) {
                 var selectorClass = "text-white bg-info";
@@ -150,12 +151,16 @@
                     this.selectedCountry.push(countryName);
                     $(".selectedCountryList").append("<span onclick='handleBadgeClick(this)' class=\"countryBadge pointer badge badge-info p-2 mr-1\">#" + countryName + "</span>");
                 }
+                this.focusSearchInput();
             },
             topFunction: function () {
                 $("html, body").animate({
                     scrollTop: 0
                 }, 1000);
                 return false;
+            },
+            focusSearchInput:function () {
+                $("#searchInput").focus();
             }
         }
     }
