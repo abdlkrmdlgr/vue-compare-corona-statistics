@@ -1,10 +1,10 @@
 <template>
     <div class="CountryList container">
         <div class="row">
-            <div class="col-md-12 col-sm-4 col-2 text-center">
-                <div class="vueLogo" style="width: 64px; height: 64px;"></div>
+            <div class="col-md-1 col-sm-4 col-2 text-left text-info">
+                <font-awesome-icon icon="chart-line" size="4x"/>
             </div>
-            <div class="col-md-12 col-sm-8 col-10 text-right">
+            <div class="col-md-11 col-sm-8 col-8 text-right">
                 <h3 class="text-danger bv-d-sm-down-none">
                     Heyyy! Compare Corona Stats by Country of Your Choice
                 </h3>
