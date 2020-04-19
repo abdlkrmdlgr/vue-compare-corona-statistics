@@ -34,10 +34,10 @@
         </div>
         <hr/>
 
-        <div class="container pl-3">
+        <div class="container pl-3 pt-2">
             <div class="row justify-content-center ">
                 <div>
-                    <font-awesome-icon icon="calendar-alt" size="2x"/>
+                    <font-awesome-icon icon="calendar-alt"/>
                 </div>
                 <div>
                     <v-md-date-range-picker
@@ -50,7 +50,6 @@
                 </div>
             </div>
         </div>
-        <hr/>
         <div>
             <p class="small d-lg-none d-sm-none d-md-none" v-if="isLangTr">Grafiği daha iyi görebilmek için ekranı
                 döndürün.</p>
@@ -92,6 +91,8 @@
         created() {
         },
         mounted() {
+            $(".activator-wrapper label").html("<span class='badge badge-info'>Select Date Range</span>");
+            $(".mdrp__activator .activator-wrapper .text-field").css("border","none");
             this.countries = this.$route.params.countryStr.split("-");
             fetch("https://pomber.github.io/covid19/timeseries.json")
                 .then(r => r.json())
