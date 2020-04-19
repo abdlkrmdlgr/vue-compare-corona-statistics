@@ -7,30 +7,48 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import CountryList from "@/components/CountryList/CountryList";
+import ChartPage from "@/components/ChartPage/ChartPage";
 import VueRouter from "vue-router";
 import VueAnalytics from 'vue-analytics';
+import VMdDateRangePicker from "v-md-date-range-picker";
+
+Vue.use(VMdDateRangePicker);
 
 import {
     faAt,
     faBrush,
+    faCalendarAlt,
     faChartLine,
     faCode,
-    faExclamationTriangle,
-    faLink,
-    faProcedures,
-    faRunning,
     faSearch,
+    faThumbtack,
     faShare,
+    faRunning,
+    faProcedures,
     faSkullCrossbones,
-    faThumbtack
+    faLink,
+    faExclamationTriangle,
+    faArrowCircleUp,
+    faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
-import ChartPage from "@/components/ChartPage/ChartPage";
-import {faArrowCircleUp} from "@fortawesome/free-solid-svg-icons/faArrowCircleUp";
 
-library.add(faChartLine, faBrush, faSearch, faThumbtack,
-    faShare, faRunning, faProcedures, faSkullCrossbones,
-    faLink, faAt, faCode, faExclamationTriangle,
-    faArrowCircleUp);
+library.add(
+    faAt,
+    faBrush,
+    faCalendarAlt,
+    faChartLine,
+    faCode,
+    faSearch,
+    faThumbtack,
+    faShare,
+    faRunning,
+    faProcedures,
+    faSkullCrossbones,
+    faLink,
+    faExclamationTriangle,
+    faArrowCircleUp,
+    faSpinner
+);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(BootstrapVue);

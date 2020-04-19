@@ -18,7 +18,7 @@
                     </a>
                     <br/>
                     <span class="text-primary">
-                    <a target="_blank" href="https://twitter.com/bortecoder">
+                    <a target="_blank" href="http://abdulkerimdulger.com">
                     <font-awesome-icon icon="code" class="mr-1"/>
                         Abdülkerim DÜLGER
                     </a>
