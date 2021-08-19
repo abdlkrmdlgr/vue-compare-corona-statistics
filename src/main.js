@@ -16,6 +16,7 @@ Vue.use(VMdDateRangePicker);
 
 import {
     faAt,
+    faPercentage,
     faBrush,
     faCalendarAlt,
     faChartLine,
@@ -34,6 +35,7 @@ import {
 
 library.add(
     faAt,
+    faPercentage,
     faBrush,
     faCalendarAlt,
     faChartLine,

@@ -11,8 +11,8 @@
             <div class="col-lg-2 col-md-4 col-sm-4 col-4 p-1 ">
                 <button class="col-md-12 btn btn-success font-weight-bold blackButtonText chartTypeR"
                         @click="drawChart($event,'R')">
-                    <font-awesome-icon icon="running" size="2x"/>
-                    <p class="mb-0">Recovered Case</p>
+                    <font-awesome-icon icon="percentage" size="2x"/>
+                    <p class="mb-0">Case/Death</p>
                 </button>
             </div>
 
@@ -134,10 +134,15 @@
                     var datesArr = [];
                     var confirmedArr = [];
                     var deathsArr = [];
-                    var recoveredArr = [];
+                    var caseDeathRatioArr = [];
 
                     // //gün gün tarihler dönülür.
                     Object.keys(this.countryItem[country]).map(index => {
+
+                        let yesterdaysItem = null;
+                        if (index!=0){
+                            yesterdaysItem = this.countryItem[country][index - 1];
+                        }
                         var item = this.countryItem[country][index];
 
                         var parsedItemDate = item.date.split("-");
@@ -145,13 +150,23 @@
                         if (parsedItemDate[2].length === 1) parsedItemDate[2] = "0" + parsedItemDate[2];
                         item.date = parsedItemDate[0] + "-" + parsedItemDate[1] + "-" + parsedItemDate[2];
 
-
-
                         if (Date.parse(item.date) >= Date.parse(this.startDate) && Date.parse(item.date) <= Date.parse(this.endDate)) {
                             datesArr.push(item.date);
-                            confirmedArr.push(item.confirmed);
-                            deathsArr.push(item.deaths);
-                            recoveredArr.push(item.recovered);
+
+                            let confirmedCount = item.confirmed;
+                            let deathsCount = item.deaths;
+                            // let caseDeathRatio = item.recovered;
+                            let caseDeathRatio =  deathsCount / confirmedCount;
+
+                            if (yesterdaysItem!=null){
+                                confirmedCount = confirmedCount - yesterdaysItem.confirmed;
+                                deathsCount = deathsCount - yesterdaysItem.deaths;
+                                caseDeathRatio = confirmedCount / deathsCount;
+                            }
+
+                            confirmedArr.push(confirmedCount);
+                            deathsArr.push(deathsCount);
+                            caseDeathRatioArr.push(caseDeathRatio);
                         }
                     });
 
@@ -166,8 +181,8 @@
                         sourceData = confirmedArr;
                         detailMessage = "Confirmed Statistic";
                     } else if (type === "R") {
-                        sourceData = recoveredArr;
-                        detailMessage = "Recovered Statistic";
+                        sourceData = caseDeathRatioArr;
+                        detailMessage = "Case / Death ratio. One person died in as many cases as the numbers on the left of the table.";
                     }
 
                     dataObject.push(
