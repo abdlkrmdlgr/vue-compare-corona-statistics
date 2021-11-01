@@ -21,7 +21,7 @@
         },
         computed: {
             flagUrl: function () {
-                return "https://www.countryflags.io/" + flagJson[this.countryName] + "/shiny/64.png"
+                 return "https://flagcdn.com/48x36/"+flagJson[this.countryName].toLowerCase()+".png"
             }
         },
         data() {
